@@ -1,8 +1,11 @@
 {
-  "dependencies": {
-    "@upstash/redis": "^1.1.0",
-    "crypto": "^1.0.1",
-    "node-fetch": "^2.6.7",
-    "vercel": "^24.0.0"
-  }
+    "dependencies": {
+        "@upstash/redis": "^1.1.0",
+        "crypto": "^1.0.1",
+        "node-fetch": "^2.6.7",
+        "vercel": "^24.0.0"
+    },
+    "devDependencies": {
+        "@vercel/style-guide": "^3.0.0"
+    }
 }
