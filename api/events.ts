@@ -9,23 +9,23 @@ const hasType = (body: unknown): body is { type: string; } => isRecord(body) && 
 const hasEvent = (body: unknown): body is { event: { type: string; }; } => isRecord(body) && 'event' in body && isRecord(body.event) && 'type' in body.event && typeof body.event.type === 'string';
 
 export default async function events(req: VercelRequest, res: VercelResponse) {
-    const type = hasType(req.body) ? req.body.type : '';
+  const type = hasType(req.body) ? req.body.type : '';
 
-    if (type === 'url_verification') {
-        challenge(req, res);
-    } else if (validateSlackRequest(req, signingSecret)) {
-        if (type === 'event_callback' && hasEvent(req.body)) {
-            const event_type = req.body.event.type;
+  if (type === 'url_verification') {
+    challenge(req, res);
+  } else if (validateSlackRequest(req, signingSecret)) {
+    if (type === 'event_callback' && hasEvent(req.body)) {
+      const event_type = req.body.event.type;
 
-            switch (event_type) {
-                case 'app_mention':
-                    await app_mention(req, res);
-                    break;
-                default:
-                    break;
-            }
-        } else {
-            console.log('body:', req.body);
-        }
+      switch (event_type) {
+        case 'app_mention':
+          await app_mention(req, res);
+          break;
+        default:
+          break;
+      }
+    } else {
+      console.log('body:', req.body);
     }
+  }
 }
