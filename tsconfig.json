@@ -1,0 +1,7 @@
+{
+  "extends": "@vercel/style-guide/typescript",
+  "include": [
+    "**/*.ts",
+    "**/*.js",
+  ]
+}

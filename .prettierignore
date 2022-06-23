@@ -1,0 +1,6 @@
+# Note that Prettier doesn't support nested ignore files.
+# https://github.com/prettier/prettier/issues/4081
+
+# Common
+node_modules/
+.vercel
